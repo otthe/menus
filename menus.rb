@@ -17,10 +17,6 @@ class Menu
     @encoded_time = URI.encode_www_form_component(@curr_time)
 
     @url = "https://www.compass-group.fi/menuapi/day-menus?costCenter=#{@rt_id}&date=#{@encoded_time}&language=#{@rt_lang}"
-
-    @response = nil
-
-    @meals = []
   end
 
   def fetch_data
