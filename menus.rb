@@ -16,7 +16,7 @@ class Menu
     @curr_time = @curr_time[0..-7] + "Z"
     @encoded_time = URI.encode_www_form_component(@curr_time)
 
-    @url = "https://www.compass-group.fi/menuapi/day-menus?costCenter=#{@rt_id}&date=#{@encoded_time}&language=fi"
+    @url = "https://www.compass-group.fi/menuapi/day-menus?costCenter=#{@rt_id}&date=#{@encoded_time}&language=#{@rt_lang}"
 
     @response = nil
 
@@ -52,7 +52,7 @@ class Menu
           end
         end
 
-        table = Terminal::Table.new :title => title, :headings => ['Ruoka', 'Merkinnät'], :rows => rows
+        table = Terminal::Table.new :title => title, :headings => ['Ruoka/Food', 'Merkinnät/Additional'], :rows => rows
         puts table
       end
     end
